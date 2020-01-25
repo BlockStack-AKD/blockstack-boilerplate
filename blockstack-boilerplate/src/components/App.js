@@ -18,7 +18,6 @@ const  App = props => {
     }
   }, [userSession])
 
-
   return (
     <div className="App">
       {userSession.isUserSignedIn() ? 
