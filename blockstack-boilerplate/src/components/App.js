@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Landing from './Landing';
+import SignedIn from './SignedIn';
+import { UserSession } from 'blockstack';
 
-function App() {
+const  App = props => {
+
+  const userSession = new UserSession();
+
+  useEffect(() => {
+    if(!userSession.isUserSignedIn() && userSession.isSignInPending()) {
+      userSession.handlePendingSignIn()
+        .then(userData => {
+          if(!userData.username) {
+            throw new Error("This app requires a username to be set")
+          }
+        })
+    }
+  }, [userSession])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://docs.blockstack.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Blockstack Boilerplate
-        </a>
-      </header>
+      {userSession.isUserSignedIn() ? 
+      <SignedIn/>
+      :
+      <Landing/>
+      }
     </div>
   );
 }
