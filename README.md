@@ -10,6 +10,7 @@
 
 ![](https://img.shields.io/github/stars/BlockStack-AKD/blockstack-boilerplate) ![](https://img.shields.io/github/forks/BlockStack-AKD/blockstack-boilerplate) ![](https://img.shields.io/github/tag/BlockStack-AKD/blockstack-boilerplate) ![](https://img.shields.io/github/release/BlockStack-AKD/blockstack-boilerplate) ![](https://img.shields.io/github/issues/BlockStack-AKD/blockstack-boilerplate)
 
-**Table of Contents**
+
+:tw-1f525:**Table of Contents**
 
 [TOC]
