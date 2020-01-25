@@ -4,9 +4,8 @@ on:
   push:
     branches: 
       - Development
-      - master
   pull_request:
-    branches: 
+    branches:
       - master
 
 jobs:
@@ -14,14 +13,13 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-      - run: npm install
-      - run: npm test a
+      - name: npm install, build and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm test
