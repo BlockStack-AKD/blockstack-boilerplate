@@ -6,7 +6,7 @@ import { appConfig } from "../config/constants";
 
 const Landing = props => {
 
-    const userSession = new UserSession(appConfig);
+    const userSession = new UserSession({appConfig});
 
     const signIn = (e) => {
         e.preventDefault();
@@ -14,11 +14,9 @@ const Landing = props => {
     }
 
     return (
-        <div>
-            <div>
-                <h1>Blockstack Boilerplate</h1>
-                <button onClick={e => signIn(e)}>Sign In With Blockstack</button>
-            </div>
+        <div data-testid="landingTestID">
+            <h1>Blockstack Boilerplate</h1>
+            <button onClick={e => signIn(e)}>Sign In With Blockstack</button>
         </div>
     )
 }
