@@ -1,32 +1,35 @@
 import React, { useEffect } from 'react';
 import Landing from './Landing';
 import SignedIn from './SignedIn';
+
 import { UserSession } from 'blockstack';
+import { appConfig } from '../config/constants';
+
+const userSession = new UserSession({appConfig});
 
 const  App = props => {
 
-  const userSession = new UserSession();
+
+  console.log(userSession.isUserSignedIn())
 
   useEffect(() => {
     if(!userSession.isUserSignedIn() && userSession.isSignInPending()) {
       userSession.handlePendingSignIn()
-        .then(userData => {
+        .then((userData) => {
           if(!userData.username) {
             throw new Error("This app requires a username to be set")
           }
+          window.location = window.location.origin;
         })
     }
-  }, [userSession])
+  })
 
   return (
     <div className="App">
-      {userSession.isUserSignedIn() ? 
-      <SignedIn/>
-      :
-      <Landing/>
-      }
+      {!userSession.isUserSignedIn() ? <Landing/> : <SignedIn/>}
     </div>
   );
 }
+
 
 export default App;

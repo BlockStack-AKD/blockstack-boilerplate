@@ -6,7 +6,7 @@ import { appConfig } from "../config/constants";
 
 const Landing = props => {
 
-    const userSession = new UserSession(appConfig);
+    const userSession = new UserSession({appConfig});
 
     const signIn = (e) => {
         e.preventDefault();
