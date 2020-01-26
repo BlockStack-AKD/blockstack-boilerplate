@@ -9,9 +9,6 @@ const userSession = new UserSession({appConfig});
 
 const  App = props => {
 
-
-  console.log(userSession.isUserSignedIn())
-
   useEffect(() => {
     if(!userSession.isUserSignedIn() && userSession.isSignInPending()) {
       userSession.handlePendingSignIn()
@@ -25,7 +22,7 @@ const  App = props => {
   })
 
   return (
-    <div className="App">
+    <div className="App" data-testid="appTestID">
       {!userSession.isUserSignedIn() ? <Landing/> : <SignedIn/>}
     </div>
   );
