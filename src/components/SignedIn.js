@@ -14,14 +14,14 @@ const SignedIn = props => {
     const userSession = new UserSession({appConfig});
 
     const handleSignOut = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         userSession.signUserOut(window.location.origin)
     }
 
     return (
         <div data-testid="signedinTestID">
             <Layout style={{ minHeight: '100vh' }}>
-                <SiderMenu/>
+                <SiderMenu signOut={handleSignOut}/>
                 <Layout>
                     <Header style={{ background: '#fff', padding: 0 }} />
                     <Content style={{ margin: '0 16px' }}>
