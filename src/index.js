@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // Styles
 import './styles/index.css';
-import './styles/App.css'
+import './styles/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // Components
 import App from './components/App';
 // // Services
